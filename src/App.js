@@ -1,5 +1,6 @@
 import React from 'react';
-import Movie from './Components/Movie'
+import SearchBar from './Components/SearchBar'
+import MovieList from './Containers/MovieList'
 import CustomLayout from './Containers/Layout';
 
 function App() {
@@ -7,7 +8,9 @@ function App() {
     <div className="App">
       <CustomLayout />
       <br />
-      <Movie />
+      <SearchBar />
+      <br />
+      <MovieList />
     </div>
   );
 }
