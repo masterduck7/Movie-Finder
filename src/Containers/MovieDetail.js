@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import axios from 'axios';
-import { Card } from 'antd';
+import { Card, Button } from 'antd';
+
 
 class MovieDetail extends Component {
     constructor(props){
         super(props)
         this.state = {
-            movie: []
+            movie: [],
+            favorite: false
         }
     }
     
     componentDidMount(){
         const movieID = this.props.match.params.movieID;
-        console.log(movieID)
-        console.log(`https://www.omdbapi.com/?apikey=70df9497&i=${movieID}`)
         axios.get(`https://www.omdbapi.com/?apikey=70df9497&i=${movieID}`)
             .then(res => {
                 this.setState({
@@ -23,9 +23,24 @@ class MovieDetail extends Component {
             )
     }
 
+    onChange = event => {
+        this.setState({favorite: !this.state.favorite})
+        if (this.state.favorite === false) {
+            console.log(":D")
+            localStorage.setItem(this.state.movie.imdbID,this.state.movie.Title)
+        }
+        else{
+            console.log(":(")
+            localStorage.removeItem(this.state.movie.imdbID)
+        }
+    };
+
     render() {
         return  (
             <div>
+                <Button type="danger" onClick={this.onChange}>
+                    Favorito
+                </Button>
                 <Card title = {this.state.movie.Title}>
                     <Card.Grid>
                         <b>Year: </b> {this.state.movie.Year}
