@@ -1,18 +1,17 @@
-import React from 'react';
-import SearchBar from './Components/SearchBar'
-import MovieList from './Containers/MovieList'
+import React, { Component } from 'react';
+import MovieList from './Containers/MovieList';
 import CustomLayout from './Containers/Layout';
 
-function App() {
-  return (
-    <div className="App">
-      <CustomLayout />
-      <br />
-      <SearchBar />
-      <br />
-      <MovieList />
-    </div>
-  );
+class App extends Component {  
+  render(){
+    return (
+      <div className="App">
+        <CustomLayout />
+        <br />
+        <MovieList />
+      </div>
+    );
+  }
 }
 
 export default App;
