@@ -12,7 +12,7 @@ class MovieList extends Component {
     }
     
     componentDidMount(){
-        axios.get('https://www.omdbapi.com/?apikey=70df9497')
+        axios.get('https://www.omdbapi.com/?apikey=70df9497&t=a')
             .then(res => {
                 this.setState({
                     movies: res.data
