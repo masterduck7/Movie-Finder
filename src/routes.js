@@ -1,14 +1,22 @@
 import React from 'react';
-import {Route} from 'react-router-dom';
+import {Route,Switch} from 'react-router-dom';
 import MovieList from './Containers/MovieList';
 import MovieDetail from './Containers/MovieDetail';
 import FavoriteMovies from './Containers/FavoriteMovies';
+import CustomLayout from './Containers/Layout';
+import {BrowserRouter as Router} from 'react-router-dom'; 
 
 const BaseRouter = () => (
     <div>
-        <Route exact path='/' component={MovieList} />
-        <Route exact path='/:movieID' component={MovieDetail} />
-        <Route exact path='/favorite-movies' component={FavoriteMovies} />
+        <Router>
+            <CustomLayout />
+            <br />
+            <Switch>
+                <Route exact path='/' component={MovieList} />
+                <Route exact path='/favorite-movies' component={FavoriteMovies} />
+                <Route exact path='/:movieID' component={MovieDetail} />
+            </Switch>
+        </Router>
     </div>
 );
 

@@ -32,7 +32,6 @@ class MovieList extends Component {
     }
 
     render() {
-        console.log(this.state.movies)
         return  (
             <div>
                 <center><Input
