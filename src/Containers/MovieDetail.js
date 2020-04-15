@@ -27,16 +27,18 @@ class MovieDetail extends Component {
         if (data === null) {
             const data = JSON.stringify(this.state.movie);
             localStorage.setItem(this.state.movie.imdbID,data)
+            alert("Película agregada a favoritos");
         }
         else{
             localStorage.removeItem(this.state.movie.imdbID)
+            alert("Película eliminada a favoritos");
         }
     };
 
     render() {
         return  (
             <div>
-                <Button type="danger" onClick={this.onChange}>
+                <Button href="/favorite-movies" type="danger" onClick={this.onChange}>
                     Favorito
                 </Button>
                 <Card title = {this.state.movie.Title}>
