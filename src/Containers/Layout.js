@@ -11,9 +11,9 @@ class CustomLayout extends Component{
             <Layout className="layout">
                 <Header>
                     <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']} style={{ lineHeight: '64px' }}>
-                        <Menu.Item><img alt="" src="movie.png" height="40px" /></Menu.Item>
+                        <Menu.Item><Link to="/"><img alt="" src="movie.png" height="40px" /></Link></Menu.Item>
                         <Menu.Item key="1"><Link to="/">Buscador de Películas</Link></Menu.Item>
-                        <Menu.Item key="2">Favoritas</Menu.Item>
+                        <Menu.Item key="2"><Link to="/favorite-movies">Favoritas</Link></Menu.Item>
                     </Menu>
                 </Header>
             </Layout>
