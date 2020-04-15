@@ -27,7 +27,9 @@ class MovieDetail extends Component {
         this.setState({favorite: !this.state.favorite})
         if (this.state.favorite === false) {
             console.log(":D")
-            localStorage.setItem(this.state.movie.imdbID,this.state.movie.Title)
+            console.log(this.state.movie)
+            const data = JSON.stringify(this.state.movie);
+            localStorage.setItem(this.state.movie.imdbID,data)
         }
         else{
             console.log(":(")

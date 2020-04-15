@@ -1,48 +1,46 @@
 import React, { Component } from "react";
-import axios from 'axios';
-import Movie from '../Components/Movie';
-import { Icon, Input } from 'antd';
+import { List, Avatar, Icon } from 'antd';
 
 class FavoriteMovies extends Component {
-    constructor(props){
-        super(props)
+    constructor(state){
+        super(state)
         this.state = {
             movies: []
         }
     }
     
     componentDidMount(){
-        axios.get('https://www.omdbapi.com/?apikey=70df9497')
-            .then(res => {
-                this.setState({
-                    movies: res.data
-                })
-            }
-            )
-    }
-
-    onChange(e){
-        axios.get(`https://www.omdbapi.com/?apikey=70df9497&t=${e.target.value}`)
-            .then(res => {
-                this.setState({
-                    movies: res.data
-                })
-            }
-            )
+        var values = []
+        var keys = Object.keys(localStorage)
+        var i = keys.length;
+        while ( i-- ) {
+            values.push(JSON.parse(localStorage.getItem(keys[i])));
+        }
+        if (values) {
+            this.state.movies = values;
+        }
     }
 
     render() {
         return  (
             <div>
-                <center><Input
-                    name="input"
-                    placeholder="Favor ingrese nombre de pelicula"
-                    className="certain-category-icon"
-                    style={{ width: '50%' }}
-                    suffix={<Icon type="search"/>}
-                    onChange={this.onChange.bind(this)}
-                /></center>
-                <Movie data={this.state.movies}/>
+                <List
+                    style={{ marginLeft:"5%", marginRight:"5%" }}
+                    delay="10"
+                    dataSource={this.state.movies}
+                    renderItem={item => (
+                        <List.Item
+                            key={item.title}
+                            extra={<img width={100} alt="Poster" src={item.Poster}/>}
+                        >
+                        <List.Item.Meta
+                            avatar={<Avatar src={item.Poster} />}
+                            title={<a href={`/${item.imdbID}`}>{item.Title}</a>}
+                            description={item.Year}
+                        />
+                    </List.Item>
+                    )}
+                />
             </div>
         )
     }
