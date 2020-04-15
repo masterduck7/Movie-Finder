@@ -7,8 +7,7 @@ class MovieDetail extends Component {
     constructor(props){
         super(props)
         this.state = {
-            movie: [],
-            favorite: false
+            movie: []
         }
     }
     
@@ -24,15 +23,12 @@ class MovieDetail extends Component {
     }
 
     onChange = event => {
-        this.setState({favorite: !this.state.favorite})
-        if (this.state.favorite === false) {
-            console.log(":D")
-            console.log(this.state.movie)
+        const data = localStorage.getItem(this.state.movie.imdbID)
+        if (data === null) {
             const data = JSON.stringify(this.state.movie);
             localStorage.setItem(this.state.movie.imdbID,data)
         }
         else{
-            console.log(":(")
             localStorage.removeItem(this.state.movie.imdbID)
         }
     };

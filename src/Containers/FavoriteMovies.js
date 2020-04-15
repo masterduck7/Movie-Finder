@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { List, Avatar, Icon } from 'antd';
+import { List, Avatar } from 'antd';
 
 class FavoriteMovies extends Component {
     constructor(state){
@@ -17,7 +17,7 @@ class FavoriteMovies extends Component {
             values.push(JSON.parse(localStorage.getItem(keys[i])));
         }
         if (values) {
-            this.state.movies = values;
+            this.setState({movies: values});
         }
     }
 
@@ -26,7 +26,6 @@ class FavoriteMovies extends Component {
             <div>
                 <List
                     style={{ marginLeft:"5%", marginRight:"5%" }}
-                    delay="10"
                     dataSource={this.state.movies}
                     renderItem={item => (
                         <List.Item
