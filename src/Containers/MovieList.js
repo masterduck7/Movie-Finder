@@ -12,7 +12,7 @@ class MovieList extends Component {
     }
     
     componentDidMount(){
-        axios.get('https://www.omdbapi.com/?i=tt3896198&apikey=70df9497')
+        axios.get('https://www.omdbapi.com/?apikey=70df9497')
             .then(res => {
                 this.setState({
                     movies: res.data
@@ -22,7 +22,7 @@ class MovieList extends Component {
     }
 
     onChange(e){
-        axios.get(`https://www.omdbapi.com/?i=tt3896198&apikey=70df9497&t=${e.target.value}`)
+        axios.get(`https://www.omdbapi.com/?apikey=70df9497&t=${e.target.value}`)
             .then(res => {
                 this.setState({
                     movies: res.data
