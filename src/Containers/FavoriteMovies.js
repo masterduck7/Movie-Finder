@@ -30,10 +30,10 @@ class FavoriteMovies extends Component {
                     renderItem={item => (
                         <List.Item
                             key={item.title}
-                            extra={<img width={100} alt="Poster" src={item.Poster}/>}
+                            extra={<a href={`/${item.imdbID}`}><img width={100} alt="Poster" src={item.Poster}/></a>}
                         >
                         <List.Item.Meta
-                            avatar={<Avatar src={item.Poster} />}
+                            avatar={<a href={`/${item.imdbID}`}><Avatar src={item.Poster} /></a>}
                             title={<a href={`/${item.imdbID}`}>{item.Title}</a>}
                             description={item.Year}
                         />
