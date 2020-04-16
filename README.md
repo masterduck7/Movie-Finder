@@ -1,5 +1,7 @@
 # Movie-Finder
 Website that accesses movie data from the OMDb API.
+
+Running in Github pages https://masterduck7.github.io/Movie-Finder
  
 ## Execution of the application
 
