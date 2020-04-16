@@ -5,24 +5,22 @@ class MovieList extends Component {
     render() {
         return(
             <div>
-                <List style={{ marginLeft:"5%", marginRight:"5%" }} delay="10">
-                    <List.Item
-                        key={this.props.data.Title}
-                        extra={
-                        <a href={`/${this.props.data.imdbID}`}><img
-                            width={100}
-                            alt="Poster"
-                            src={this.props.data.Poster}
-                        /></a>
-                        }
-                    >
-                    <List.Item.Meta
-                        avatar={<a href={`/${this.props.data.imdbID}`}><Avatar src={this.props.data.Poster} /></a>}
-                        title={<a href={`/${this.props.data.imdbID}`}>{this.props.data.Title}</a>}
-                        description={this.props.data.Year}
-                    />
+                <List
+                    style={{ marginLeft:"5%", marginRight:"5%" }}
+                    dataSource={this.props.data}
+                    renderItem={item => (
+                        <List.Item
+                            key={item.title}
+                            extra={<a href={`/${item.imdbID}`}><img width={100} alt="Poster" src={item.Poster}/></a>}
+                        >
+                        <List.Item.Meta
+                            avatar={<a href={`/${item.imdbID}`}><Avatar src={item.Poster} /></a>}
+                            title={<a href={`/${item.imdbID}`}>{item.Title}</a>}
+                            description={item.Year}
+                        />
                     </List.Item>
-                </List>
+                    )}
+                />
             </div>
         )
     }

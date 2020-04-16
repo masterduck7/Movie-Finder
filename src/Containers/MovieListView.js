@@ -14,13 +14,18 @@ class MovieListView extends Component {
     componentDidMount(){
         const API_KEY = process.env.REACT_APP_IMDB_API_KEY;
         const API_URL = process.env.REACT_APP_IMDB_URL;
-        axios.get(`${API_URL}?apikey=${API_KEY}&t=a`)
+        axios.get(`${API_URL}?apikey=${API_KEY}`)
             .then(res => {
-                this.setState({
-                    movies: res.data
-                })
-            }
-            )
+                if (!res.data["Error"]) {
+                    this.setState({
+                        movies: [res.data]
+                    })    
+                }else{
+                    this.setState({
+                        movies: []
+                    }) 
+                }
+            })
     }
 
     onChange(e){
@@ -28,11 +33,16 @@ class MovieListView extends Component {
         const API_URL = process.env.REACT_APP_IMDB_URL;
         axios.get(`${API_URL}?apikey=${API_KEY}&t=${e.target.value}`)
             .then(res => {
-                this.setState({
-                    movies: res.data
-                })
-            }
-            )
+                if (!res.data["Error"]) {
+                    this.setState({
+                        movies: [res.data]
+                    })    
+                }else{
+                    this.setState({
+                        movies: []
+                    }) 
+                }
+            })
     }
 
     render() {
