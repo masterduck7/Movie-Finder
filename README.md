@@ -17,5 +17,5 @@ It's necessary to install NodeJS with NPM (https://nodejs.org/en/)
 
 ### Execution
 
-- Run app: npm start .\.env
+- Run app: npm start .env
 - Go to: http://localhost:3000/
