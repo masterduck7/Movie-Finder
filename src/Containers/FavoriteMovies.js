@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { List, Avatar } from 'antd';
+import MovieList from "../Components/MovieList";
 
 class FavoriteMovies extends Component {
     constructor(state){
@@ -24,22 +24,7 @@ class FavoriteMovies extends Component {
     render() {
         return  (
             <div>
-                <List
-                    style={{ marginLeft:"5%", marginRight:"5%" }}
-                    dataSource={this.state.movies}
-                    renderItem={item => (
-                        <List.Item
-                            key={item.title}
-                            extra={<img width={100} alt="Poster" src={item.Poster}/>}
-                        >
-                        <List.Item.Meta
-                            avatar={<Avatar src={item.Poster} />}
-                            title={<a href={`/${item.imdbID}`}>{item.Title}</a>}
-                            description={item.Year}
-                        />
-                    </List.Item>
-                    )}
-                />
+                <MovieList data={this.state.movies} />
             </div>
         )
     }

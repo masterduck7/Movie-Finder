@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route,Switch} from 'react-router-dom';
-import MovieList from './Containers/MovieList';
-import MovieDetail from './Containers/MovieDetail';
+import MovieList from './Containers/MovieListView';
+import MovieDetail from './Containers/MovieDetailView';
 import FavoriteMovies from './Containers/FavoriteMovies';
 import CustomLayout from './Containers/Layout';
 import {BrowserRouter as Router} from 'react-router-dom'; 
