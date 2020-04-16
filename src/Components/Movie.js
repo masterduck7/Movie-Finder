@@ -9,15 +9,15 @@ class Movie extends Component {
                     <List.Item
                         key={this.props.data.Title}
                         extra={
-                        <img
+                        <a href={`/${this.props.data.imdbID}`}><img
                             width={100}
                             alt="Poster"
                             src={this.props.data.Poster}
-                        />
+                        /></a>
                         }
                     >
                     <List.Item.Meta
-                        avatar={<Avatar src={this.props.data.Poster} />}
+                        avatar={<a href={`/${this.props.data.imdbID}`}><Avatar src={this.props.data.Poster} /></a>}
                         title={<a href={`/${this.props.data.imdbID}`}>{this.props.data.Title}</a>}
                         description={this.props.data.Year}
                     />
