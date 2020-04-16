@@ -4,11 +4,11 @@ import MovieList from './Containers/MovieListView';
 import MovieDetail from './Containers/MovieDetailView';
 import FavoriteMovies from './Containers/FavoriteMovies';
 import CustomLayout from './Containers/Layout';
-import {BrowserRouter as Router} from 'react-router-dom'; 
+import { HashRouter } from 'react-router-dom'; 
 
 const BaseRouter = () => (
     <div>
-        <Router>
+        <HashRouter basename='/'>
             <CustomLayout />
             <br />
             <Switch>
@@ -16,7 +16,7 @@ const BaseRouter = () => (
                 <Route exact path='/favorite-movies' component={FavoriteMovies} />
                 <Route exact path='/:movieID' component={MovieDetail} />
             </Switch>
-        </Router>
+        </HashRouter>
     </div>
 );
 

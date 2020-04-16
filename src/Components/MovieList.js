@@ -11,11 +11,11 @@ class MovieList extends Component {
                     renderItem={item => (
                         <List.Item
                             key={item.title}
-                            extra={<a href={`/${item.imdbID}`}><img width={100} alt="Poster" src={item.Poster}/></a>}
+                            extra={<a href={`/Movie-Finder/#/${item.imdbID}`}><img width={100} alt="Poster" src={item.Poster}/></a>}
                         >
                         <List.Item.Meta
-                            avatar={<a href={`/${item.imdbID}`}><Avatar src={item.Poster} /></a>}
-                            title={<a href={`/${item.imdbID}`}>{item.Title}</a>}
+                            avatar={<a href={`/Movie-Finder/#/${item.imdbID}`}><Avatar src={item.Poster} /></a>}
+                            title={<a href={`/Movie-Finder/#/${item.imdbID}`}>{item.Title}</a>}
                             description={item.Year}
                         />
                     </List.Item>
