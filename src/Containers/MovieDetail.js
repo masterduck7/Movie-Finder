@@ -7,7 +7,8 @@ class MovieDetail extends Component {
     constructor(props){
         super(props)
         this.state = {
-            movie: []
+            movie: [],
+            favorite: false
         }
     }
     
@@ -20,29 +21,40 @@ class MovieDetail extends Component {
                 this.setState({
                     movie: res.data
                 })
-            }
-            )
+                const data = localStorage.getItem(this.state.movie.imdbID)
+                if (data === null) {
+                    this.setState({
+                        favorite: false
+                    })
+                }
+                else{
+                    this.setState({
+                        favorite: true
+                    })
+                }
+            })
     }
 
-    onChange = event => {
-        const data = localStorage.getItem(this.state.movie.imdbID)
-        if (data === null) {
-            const data = JSON.stringify(this.state.movie);
-            localStorage.setItem(this.state.movie.imdbID,data)
-            alert("Película agregada a favoritos");
-        }
-        else{
-            localStorage.removeItem(this.state.movie.imdbID)
-            alert("Película eliminada a favoritos");
-        }
+    onChangeAddFavorite = event => {
+        const data = JSON.stringify(this.state.movie);
+        localStorage.setItem(this.state.movie.imdbID,data)
+        alert("Película agregada a favoritos");
+    };
+
+    onChangeRemoveFavorite = event => {
+        localStorage.removeItem(this.state.movie.imdbID)
+        alert("Película eliminada a favoritos");
     };
 
     render() {
         return  (
             <div>
-                <Button href="/favorite-movies" type="danger" onClick={this.onChange}>
-                    Favorito
-                </Button>
+                <Button disabled={this.state.favorite} href="/favorite-movies" type="primary" onClick={this.onChangeAddFavorite}>
+                    Añadir a favoritas
+                </Button> 
+                <Button disabled={!this.state.favorite} href="/favorite-movies" type="danger" onClick={this.onChangeRemoveFavorite}>
+                    Quitar de favoritas
+                </Button>   
                 <Card title = {this.state.movie.Title}>
                     <Card.Grid>
                         <b>Year: </b> {this.state.movie.Year}
