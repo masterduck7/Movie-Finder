@@ -57,41 +57,41 @@ class MovieDetail extends Component {
                 </Button>   
                 <Card title = {this.state.movie.Title}>
                     <Card.Grid>
-                        <b>Year: </b> {this.state.movie.Year}
+                        <b>Año: </b> {this.state.movie.Year}
                     </Card.Grid>
                     <Card.Grid>
-                        <b>Released: </b> {this.state.movie.Released}
+                        <b>Publicacion: </b> {this.state.movie.Released}
                     </Card.Grid>
                     <Card.Grid>
-                        <b>Rated: </b> {this.state.movie.Rated}
+                        <b>Clasificacion: </b> {this.state.movie.Rated}
                     </Card.Grid>
                     <Card.Grid>
-                        <b>Type: </b> {this.state.movie.Type}
+                        <b>Tipo: </b> {this.state.movie.Type}
                     </Card.Grid>
                     <Card.Grid>
                         <b>Director: </b> {this.state.movie.Director}
                     </Card.Grid>
                     <Card.Grid>
-                        <b>Country: </b> {this.state.movie.Country}
+                        <b>Pais: </b> {this.state.movie.Country}
                     </Card.Grid>
                     <Card.Grid>
-                        <b>imdbRating: </b> {this.state.movie.imdbRating}
+                        <b>Calificacion imdb: </b> {this.state.movie.imdbRating}
                     </Card.Grid>
                     <Card.Grid>
-                        <b>Metascore: </b> {this.state.movie.Metascore}
+                        <b>Puntuacion: </b> {this.state.movie.Metascore}
                     </Card.Grid>
                     <Card.Grid>
-                        <b>Awards: </b> {this.state.movie.Awards}
+                        <b>Premios: </b> {this.state.movie.Awards}
                     </Card.Grid>
                 </Card>
                 <Card>
-                    <b>Plot: </b> {this.state.movie.Plot}
+                    <b>Trama: </b> {this.state.movie.Plot}
                 </Card>
                 <Card>
-                    <b>Actors: </b> {this.state.movie.Actors}
+                    <b>Actores: </b> {this.state.movie.Actors}
                 </Card>
                 <Card>
-                    <b>Production: </b> {this.state.movie.Production}
+                    <b>Produccion: </b> {this.state.movie.Production}
                 </Card>
             </div>
         )
