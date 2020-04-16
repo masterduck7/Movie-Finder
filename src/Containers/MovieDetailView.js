@@ -50,10 +50,10 @@ class MovieDetailView extends Component {
     render() {
         return  (
             <div>
-                <Button disabled={this.state.favorite} href="/favorite-movies" type="primary" onClick={this.onChangeAddFavorite}>
+                <Button disabled={this.state.favorite} href="/Movie-Finder/#/favorite-movies" type="primary" onClick={this.onChangeAddFavorite}>
                     Añadir a favoritas
                 </Button> 
-                <Button disabled={!this.state.favorite} href="/favorite-movies" type="danger" onClick={this.onChangeRemoveFavorite}>
+                <Button disabled={!this.state.favorite} href="/Movie-Finder/#/favorite-movies" type="danger" onClick={this.onChangeRemoveFavorite}>
                     Quitar de favoritas
                 </Button>   
                 <MovieDetail movie={this.state.movie} />
