@@ -13,7 +13,9 @@ class MovieDetail extends Component {
     
     componentDidMount(){
         const movieID = this.props.match.params.movieID;
-        axios.get(`https://www.omdbapi.com/?apikey=70df9497&i=${movieID}`)
+        const API_KEY = process.env.REACT_APP_IMDB_API_KEY;
+        const API_URL = process.env.REACT_APP_IMDB_URL;
+        axios.get(`${API_URL}?apikey=${API_KEY}&i=${movieID}`)
             .then(res => {
                 this.setState({
                     movie: res.data

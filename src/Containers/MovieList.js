@@ -12,7 +12,9 @@ class MovieList extends Component {
     }
     
     componentDidMount(){
-        axios.get('https://www.omdbapi.com/?apikey=70df9497&t=a')
+        const API_KEY = process.env.REACT_APP_IMDB_API_KEY;
+        const API_URL = process.env.REACT_APP_IMDB_URL;
+        axios.get(`${API_URL}?apikey=${API_KEY}&t=a`)
             .then(res => {
                 this.setState({
                     movies: res.data
@@ -22,7 +24,9 @@ class MovieList extends Component {
     }
 
     onChange(e){
-        axios.get(`https://www.omdbapi.com/?apikey=70df9497&t=${e.target.value}`)
+        const API_KEY = process.env.REACT_APP_IMDB_API_KEY;
+        const API_URL = process.env.REACT_APP_IMDB_URL;
+        axios.get(`${API_URL}?apikey=${API_KEY}&t=${e.target.value}`)
             .then(res => {
                 this.setState({
                     movies: res.data
