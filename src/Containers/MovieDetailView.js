@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import axios from 'axios';
-import { Card, Button } from 'antd';
+import { Button } from 'antd';
+import MovieDetail from '../Components/MovieDetail'
 
 
-class MovieDetail extends Component {
+class MovieDetailView extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -55,47 +56,10 @@ class MovieDetail extends Component {
                 <Button disabled={!this.state.favorite} href="/favorite-movies" type="danger" onClick={this.onChangeRemoveFavorite}>
                     Quitar de favoritas
                 </Button>   
-                <Card title = {this.state.movie.Title}>
-                    <Card.Grid>
-                        <b>Año: </b> {this.state.movie.Year}
-                    </Card.Grid>
-                    <Card.Grid>
-                        <b>Publicacion: </b> {this.state.movie.Released}
-                    </Card.Grid>
-                    <Card.Grid>
-                        <b>Clasificacion: </b> {this.state.movie.Rated}
-                    </Card.Grid>
-                    <Card.Grid>
-                        <b>Tipo: </b> {this.state.movie.Type}
-                    </Card.Grid>
-                    <Card.Grid>
-                        <b>Director: </b> {this.state.movie.Director}
-                    </Card.Grid>
-                    <Card.Grid>
-                        <b>Pais: </b> {this.state.movie.Country}
-                    </Card.Grid>
-                    <Card.Grid>
-                        <b>Calificacion imdb: </b> {this.state.movie.imdbRating}
-                    </Card.Grid>
-                    <Card.Grid>
-                        <b>Puntuacion: </b> {this.state.movie.Metascore}
-                    </Card.Grid>
-                    <Card.Grid>
-                        <b>Premios: </b> {this.state.movie.Awards}
-                    </Card.Grid>
-                </Card>
-                <Card>
-                    <b>Trama: </b> {this.state.movie.Plot}
-                </Card>
-                <Card>
-                    <b>Actores: </b> {this.state.movie.Actors}
-                </Card>
-                <Card>
-                    <b>Produccion: </b> {this.state.movie.Production}
-                </Card>
+                <MovieDetail movie={this.state.movie} />
             </div>
         )
     }
 }
 
-export default MovieDetail;
+export default MovieDetailView;

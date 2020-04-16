@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import axios from 'axios';
-import Movie from '../Components/Movie';
+import MovieList from '../Components/MovieList';
 import { Icon, Input } from 'antd';
 
-class MovieList extends Component {
+class MovieListView extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -46,10 +46,10 @@ class MovieList extends Component {
                     suffix={<Icon type="search"/>}
                     onChange={this.onChange.bind(this)}
                 /></center>
-                <Movie data={this.state.movies}/>
+                <MovieList data={this.state.movies}/>
             </div>
         )
     }
 }
 
-export default MovieList;
+export default MovieListView;

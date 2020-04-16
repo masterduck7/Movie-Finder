@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { List, Avatar } from 'antd';
 
-class Movie extends Component {
+class MovieList extends Component {
     render() {
         return(
             <div>
@@ -28,4 +28,4 @@ class Movie extends Component {
     }
 };
 
-export default Movie;
+export default MovieList;
